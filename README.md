@@ -11,7 +11,8 @@
 ```shell
 docker run --name shadowsocks --restart=always -d -t \ 
     -v /path/to/config_file:/etc/shadowsocks-libev/config.json \
-    -p 127.0.0.1:1080:1080 iceihehe/shadowsocks-libev
+    -p 127.0.0.1:1080:1080 iceihehe/shadowsocks-libev \
+    ss-local -c /etc/shadowsocks-libev/config.json
 ```
 
 ### ss-server
@@ -19,5 +20,6 @@ docker run --name shadowsocks --restart=always -d -t \
 ```shell
 docker run --name shadowsocks --restart=always -d -t \
     -v /path/to/config_file:/etc/shadowsocks-libev/config.json \
-    -p 0.0.0.0:8338:8338 --entrypoint ss-server \
-    -c /etc/shadowsocks-libev/config.json
+    -p 0.0.0.0:8338:8338 iceihehe/shadowsocks-libev \
+    ss-server -c /etc/shadowsocks-libev/config.json
+```

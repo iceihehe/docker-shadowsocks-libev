@@ -16,7 +16,4 @@ RUN echo "deb http://shadowsocks.org/debian wheezy main" >> /etc/apt/sources.lis
 # install shadowsocks-libev
 RUN apt-get update && apt-get install -y init-system-helpers shadowsocks-libev
 
-EXPOSE 1080
-
-ENTRYPOINT ["ss-local"]
-CMD ["-c", "/etc/shadowsocks-libev/config.json"]
+EXPOSE 1080 8388
